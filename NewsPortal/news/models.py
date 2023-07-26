@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User, Group, AbstractUser, Permission
+from django.contrib.auth.models import User, Group, AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -33,11 +33,6 @@ class Post(models.Model):
 
 
 class CustomUser(AbstractUser):
-    groups = models.ManyToManyField(Group, related_name='custom_users_groups')
-    user_permissions = models.ManyToManyField(
-        Permission, related_name='custom_users_permissions'
-    )
-
     def is_author(self):
         return self.groups.filter(name='authors').exists()
 

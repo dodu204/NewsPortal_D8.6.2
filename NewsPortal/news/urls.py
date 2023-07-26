@@ -2,6 +2,9 @@ from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 from allauth.account.views import LoginView, LogoutView, SignupView
 from allauth.socialaccount.views import ConnectionsView, SignupView as SocialSignupView
+from django.urls import path
+from django.contrib.auth.views import LogoutView
+from allauth.account.views import LoginView, LogoutView, SignupView
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, ProfileUpdateView
 
 urlpatterns = [
